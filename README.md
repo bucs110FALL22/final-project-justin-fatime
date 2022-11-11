@@ -42,7 +42,26 @@ https://replit.com/join/rwduvsnqcx-justintunney
     * << A simple drawing that shows the class relationships in your code (see below for an example). This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm. >>
         * ![class diagram](assets/class_diagram.jpg) 
 * Classes
-    * << You should have a list of each of your classes with a description. >>
+    * << You should have a list of each of your classes with a description.
+
+Class Name:
+Character
+Instance Variables:
+x: sprites x position
+y: sprites y position
+Methods:
+getX: returns sprite x position
+getY: returns sprite y position
+
+Class Name:
+Enemy 
+Instance Variables:
+x: objects x position
+y: objects y position
+Methods: 
+getX: returns objects x position
+getY: returns objects y position
+      >>
 
 ## Project Structure and File List
 
