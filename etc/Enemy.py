@@ -7,7 +7,13 @@ class Enemy:
     self.health = 100
     self.alive = True
   def getX(self):
+#	sets x cordinates value of enemy
+#	args: int
+#	return: returns integer and location of enemy
     return self.x
   def getY(self):
+#	sets y cordinates value of enemy
+#	args: int
+#	return: returns integer and location of enemy
     return self.y
 

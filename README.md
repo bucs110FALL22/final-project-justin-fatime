@@ -61,6 +61,18 @@ y: objects y position
 Methods: 
 getX: returns objects x position
 getY: returns objects y position
+
+Class Block:
+Block 
+Instance Variables:
+x: objects x position
+y: objects y position
+color: color of block
+health: integer with amount of health
+visible: boolean value of if block can be seen or not
+Methods: 
+destroyed: makes block invisible
+hitBlock: lowers health of block that was hit
       >>
 
 ## Project Structure and File List
