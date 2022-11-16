@@ -1,4 +1,7 @@
 import pygame
+import Block
+import Character
+import Enemy
 #import your controller
 
 def main():
