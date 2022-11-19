@@ -1,5 +1,5 @@
 import pygame
-import Menu
+from Menu import Menu
 
 class Controller:
   
@@ -7,9 +7,8 @@ class Controller:
     #setup pygame data
     pygame.init()
     #set size of screem
-    width = 800
-    height = 450
-    self.screen = pygame.display.set_mode(width,height)
+    screen_demensions = [800,450]
+    self.screen = pygame.display.set_mode(size=(screen_demensions[0],screen_demensions[1]))
     
   def mainloop(self):
     #select state loop
@@ -22,8 +21,10 @@ class Controller:
     
       #event loop
     while in_menu == True:
-      screen = self.screen.Menu()
-      screen.update_menu()
+      #Create an instance on your controller object
+      controller = Menu()
+      #Call your mainloop
+      controller.update_menu(self.screen)
       #update data
       #create button locations and check if pressed
       button_size = 50

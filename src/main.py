@@ -1,4 +1,4 @@
-import Controller
+from Controller import Controller
 import pygame
 #import your controller
 
