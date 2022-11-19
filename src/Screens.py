@@ -22,15 +22,22 @@ class Screens():
     #draw escape button
     pygame.draw.rect(screen,'black',(10,10,button_size/2,button_size/2))
     #draw title
-    #asking player for input
     msg = 'Angry Bearcats'
-    font = pygame.font.Font(None, 30)
+    font = pygame.font.Font(None, 70)
     font_object = font.render(msg, True, "white")
-    screen.blit(font_object, (width/2, 40))
+    screen.blit(font_object, (width/2-250, 40))
 
-  def update_game(self,screen):
+  def update_game(self,screen,level):
     size_list = pygame.display.get_window_size()
+    button_size = 50
     width = size_list[0]
     height = size_list[1]
     screen.fill('light blue')
+    #draw escape button
+    #draw title
+    msg = 'Level ' + str(level)
+    font = pygame.font.Font(None, 70)
+    font_object = font.render(msg, True, "white")
+    screen.blit(font_object, (width/2-110, 40))
+    pygame.draw.rect(screen,'black',(10,10,button_size/2,button_size/2))
     

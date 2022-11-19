@@ -63,13 +63,21 @@ class Controller:
     return playerSelection
       
   def gameloop(self,level):
+    game_level = level
     in_game = True
     #event loop
     while in_game == True:
       #Create an instance on your controller object
       controller = Screens()
       #Call your mainloop
-      controller.update_game(self.screen)
+      controller.update_game(self.screen,game_level)
+      button_size = 50
+      exit_select = pygame.Rect(10,10,button_size/2,button_size/2)
+      for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+          mouse_click_pos = event.pos
+          if exit_select.collidepoint(mouse_click_pos):
+            in_game = False
 
       #update data
 
