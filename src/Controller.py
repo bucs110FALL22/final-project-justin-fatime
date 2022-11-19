@@ -1,5 +1,5 @@
 import pygame
-from Menu import Menu
+from Screens import Screens
 
 class Controller:
   
@@ -12,7 +12,8 @@ class Controller:
     
   def mainloop(self):
     #select state loop
-    self.menuloop()
+    selection = self.menuloop()
+    self.gameloop(selection)
   
   ### below are some sample loop states ###
 
@@ -22,7 +23,7 @@ class Controller:
       #event loop
     while in_menu == True:
       #Create an instance on your controller object
-      controller = Menu()
+      controller = Screens()
       #Call your mainloop
       controller.update_menu(self.screen)
       #update data
@@ -57,15 +58,18 @@ class Controller:
             in_menu = False
           elif exit_select.collidepoint(mouse_click_pos):
             pygame.quit()
-      
       #redraw
       pygame.display.flip()
+    return playerSelection
       
-      
-  def gameloop(self):
-      #event loop
+  def gameloop(self,level):
+    in_game = True
+    #event loop
     while in_game == True:
-      pass
+      #Create an instance on your controller object
+      controller = Screens()
+      #Call your mainloop
+      controller.update_game(self.screen)
 
       #update data
 

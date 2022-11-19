@@ -1,6 +1,6 @@
 import pygame
 
-class Menu():
+class Screens():
   def __init__(self):
     pass
 
@@ -28,4 +28,9 @@ class Menu():
     font_object = font.render(msg, True, "white")
     screen.blit(font_object, (width/2, 40))
 
+  def update_game(self,screen):
+    size_list = pygame.display.get_window_size()
+    width = size_list[0]
+    height = size_list[1]
+    screen.fill('light blue')
     
