@@ -65,19 +65,36 @@ class Controller:
   def gameloop(self,level):
     game_level = level
     in_game = True
+    in_pause = False
+    size_list = pygame.display.get_window_size()
+    width = size_list[0]
+    height = size_list[1]
     #event loop
     while in_game == True:
       #Create an instance on your controller object
       controller = Screens()
       #Call your mainloop
-      controller.update_game(self.screen,game_level)
-      button_size = 50
-      exit_select = pygame.Rect(10,10,button_size/2,button_size/2)
-      for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-          mouse_click_pos = event.pos
-          if exit_select.collidepoint(mouse_click_pos):
-            in_game = False
+      if in_pause == False:
+        controller.update_game(self.screen,game_level)
+        button_size = 50
+        pause_select = pygame.Rect(10,10,button_size/2,button_size/2)
+        for event in pygame.event.get():
+          if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_click_pos = event.pos
+            if pause_select.collidepoint(mouse_click_pos):
+              in_pause = True
+      elif in_pause == True:
+        controller.update_game(self.screen,game_level)
+        controller.update_pause(self.screen,game_level)
+        exit_select = pygame.Rect((width/2)-150,(height/2)-50,80,80)
+        resume_select = pygame.Rect(((width/2)+18,(height/2)-50,80,80))
+        for event in pygame.event.get():
+          if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_click_pos = event.pos
+            if exit_select.collidepoint(mouse_click_pos):
+              in_game = False
+            elif resume_select.collidepoint(mouse_click_pos):
+              in_pause = False
 
       #update data
 

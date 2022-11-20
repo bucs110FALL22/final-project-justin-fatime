@@ -67,3 +67,21 @@ class Screens():
     #pause button
     pygame.draw.rect(screen,'black',(10,10,button_size/2,button_size/2))
     pygame.draw.rect(screen,background,(18.33,10,button_size/6,button_size/2))
+  def update_pause(self,screen,level):
+    size_list = pygame.display.get_window_size()
+    width = size_list[0]
+    height = size_list[1]
+    pygame.draw.rect(screen,'gray',((width/2)-175,(height/2)-125,300,200))
+    #draw paused
+    msg = 'Paused'
+    font = pygame.font.Font(None, 60)
+    font_object = font.render(msg, True, "white")
+    screen.blit(font_object, (width/2-100, 110))
+    #draw escape button
+    pygame.draw.rect(screen,'white',((width/2)-150,(height/2)-50,80,80))
+    font = pygame.font.Font(None, 200)
+    font_object = font.render('x', True, "black")
+    screen.blit(font_object, ((width/2)-150,(height/2)-83))
+    #draw resume button
+    pygame.draw.rect(screen,'white',((width/2)+18,(height/2)-50,80,80))
+    pygame.draw.polygon(screen,'black',[(425, 180), (425, 250), (490, 215)])
