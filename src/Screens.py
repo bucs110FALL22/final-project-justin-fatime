@@ -1,5 +1,4 @@
 import pygame
-import math
 
 class Screens():
   def __init__(self):
@@ -59,10 +58,6 @@ class Screens():
     height = size_list[1]
     background = 'light blue'
     screen.fill(background)
-    #draw cannon base
-    pygame.draw.circle(screen,'gray',(100,height-50),50)
-    #draw ground - ground = 50 pixels off bottom
-    pygame.draw.rect(screen,'dark green',(0,height-50,width,50))
     #draw escape button
     #draw title
     msg = 'Level ' + str(level)
