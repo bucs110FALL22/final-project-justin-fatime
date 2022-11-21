@@ -90,7 +90,6 @@ class Screens():
     button_size = 50
     in_pause = False
     width = size_list[0]
-    height = size_list[1]
     background = 'light blue'
     screen.fill(background)
     #draw escape button
