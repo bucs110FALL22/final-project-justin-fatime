@@ -1,6 +1,5 @@
 import pygame
-import pygame_menu
-from Screens import Screens
+from src.Screens import Screens
 
 class Controller:
   
@@ -12,13 +11,6 @@ class Controller:
     self.screen = pygame.display.set_mode(size=(screen_demensions[0],screen_demensions[1]))
     
   def mainloop(self):
-    #select state loop
-    self.menuloop()
-    
-  
-  ### below are some sample loop states ###
-
-  def menuloop(self):
     in_menu = True
       #event loop
     while in_menu == True:
@@ -70,6 +62,7 @@ class Controller:
       pygame.display.flip()
       
   def gameoverloop(self):
+    gameover = False
       #event loop
     while gameover == True:
       pass
