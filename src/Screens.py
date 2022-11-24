@@ -1,4 +1,6 @@
 import pygame
+from src.Character import Character
+from src.Launcher import Launcher
 
 class Screens():
   def __init__(self):
@@ -98,6 +100,12 @@ class Screens():
     font = pygame.font.Font(None, 70)
     font_object = font.render(msg, True, "white")
     screen.blit(font_object, (width/2-110, 40))
+    #draw launcher
+    launcher = Launcher(0,270)
+    screen.blit(launcher.image, launcher.rect)
+    #draw character
+    character = Character(100,270)
+    screen.blit(character.image, character.rect)
     #pause button
     pygame.draw.rect(screen,'black',(10,10,button_size/2,button_size/2))
     pygame.draw.rect(screen,background,(18.33,10,button_size/6,button_size/2))

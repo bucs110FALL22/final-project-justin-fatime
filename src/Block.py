@@ -1,7 +1,10 @@
+import pygame
 class Block:
-  def __init__(self):
-    self.x = 0
-    self.y = 0
+  def __init__(self, x, y):
+    self.image = pygame.image.load("")
+    self.rect = self.image.get_rect()
+    self.rect.x= x
+    self.rect.y= y
     self.color = "brown"
     self.visible = True
     self.health = 10

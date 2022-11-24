@@ -44,7 +44,6 @@ class Controller:
       #Call your mainloop
       if in_pause == False:
         in_pause = controller.update_game(self.screen,game_level)
-        
       elif in_pause == True:
         controller.update_game(self.screen,game_level)
         controller.update_pause(self.screen,game_level)
@@ -60,6 +59,8 @@ class Controller:
       #update data
       #redraw
       pygame.display.flip()
+
+        
       
   def gameoverloop(self):
     gameover = False

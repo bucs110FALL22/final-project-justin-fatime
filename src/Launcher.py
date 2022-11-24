@@ -1,14 +1,18 @@
 import math
 import pygame
 
-class Block:
-  def __init__(self):
-    self.x = 0
-    self.y = 0
-    self.image = self.image = pygame.image.load("")
+class Launcher:
+  def __init__(self, x, y):
+    self.image = pygame.image.load("assets/launcher.png")
+    #.convert_alpha()
+    self.image= pygame.transform.scale(self.image,(150,150))
     self.rect = self.image.get_rect()
-    self.base_image = self.image = pygame.image.load("")
-    self._base_rect = self.image.get_rect()
+    self.rect.x = x
+    self.rect.y = y
+    #self.image = pygame.Surface([640,480] ,pygame.SRCALPHA, 32)
+    #self.image= self.image.convert_alpha()
+    #self.base_image = self.image = pygame.image.load("")
+    #self._base_rect = self.image.get_rect()
 
   def launch_angle(self):
     mouse_x = 1 #get x value of mouse

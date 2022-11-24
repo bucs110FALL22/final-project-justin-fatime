@@ -2,12 +2,21 @@ import pygame
 
 class Character(pygame.sprite.Sprite):
   def __init__(self, x, y):
-    self.image = pygame.image.load("")
+    #pygame.sprite.Sprite.__init__(self)
+    super().__init__()
+    self.image = pygame.image.load("assets/bearcat.png")
     self.rect = self.image.get_rect()
-    self.x = x
-    self.y = y
+    self.rect.x= x
+    self.rect.y= y
+    self.image= pygame.transform.scale(self.image,(40,40))
+    self.image= pygame.transform.flip(self.image, True, False)
+    self.mass= 10
     self.damage = 60
   
+  def update(self):
+# update sprite position
+    pass
+
   def getX(self):
 #	sets x cordinates value of character
 #	args: int
@@ -35,4 +44,3 @@ class Character(pygame.sprite.Sprite):
     #find collision library or way to make it when objects on screen hit they interact
     pass
     
-  
