@@ -1,5 +1,6 @@
 import pygame
 from src.Screens import Screens
+from src.Character import Character
 
 class Controller:
   
@@ -43,7 +44,7 @@ class Controller:
       controller = Screens()
       #Call your mainloop
       if in_pause == False:
-        in_pause = controller.update_game(self.screen,game_level)
+        in_pause = controller.update_game(self.screen,game_level)   
       elif in_pause == True:
         controller.update_game(self.screen,game_level)
         controller.update_pause(self.screen,game_level)
@@ -59,8 +60,30 @@ class Controller:
       #update data
       #redraw
       pygame.display.flip()
-
-        
+      
+    def character_aim():
+      character= Character()
+      running = True
+      clock = pygame.time.Clock()
+      #character click and drag to aim
+      while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False   
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+              if event.button==1:
+                mouse_x, mouse_y= event.pos
+                if character.rect.collidepoint(event.pos):
+                  character.clicked= True
+            elif event.type == pygame.MOUSEBUTTONUP:
+              if event.button==1: 
+                character.clicked= False
+            elif event.type == pygame.MOUSEMOTION:
+              if character.clicked:
+                character.x= mouse_x
+                character.y= mouse_y
+            clock.tick(60)
+        pygame.display.flip()
       
   def gameoverloop(self):
     gameover = False

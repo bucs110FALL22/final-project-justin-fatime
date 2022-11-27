@@ -1,7 +1,7 @@
 import pygame
 from src.Character import Character
 from src.Launcher import Launcher
-
+from src.Block import Block
 class Screens():
   def __init__(self):
     pass
@@ -104,7 +104,7 @@ class Screens():
     launcher = Launcher(0,270)
     screen.blit(launcher.image, launcher.rect)
     #draw character
-    character = Character(100,270)
+    character = Character(50,270)
     screen.blit(character.image, character.rect)
     #pause button
     pygame.draw.rect(screen,'black',(10,10,button_size/2,button_size/2))

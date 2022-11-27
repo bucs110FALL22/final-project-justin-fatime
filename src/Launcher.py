@@ -3,14 +3,13 @@ import pygame
 
 class Launcher:
   def __init__(self, x, y):
-    self.image = pygame.image.load("assets/launcher.png")
-    #.convert_alpha()
-    self.image= pygame.transform.scale(self.image,(150,150))
+    self.image =pygame.image.load("assets/slingshot.png").convert()
     self.rect = self.image.get_rect()
+    self.image= pygame.transform.scale(self.image,(150,150))
     self.rect.x = x
     self.rect.y = y
-    #self.image = pygame.Surface([640,480] ,pygame.SRCALPHA, 32)
-    #self.image= self.image.convert_alpha()
+    transColor = self.image.get_at((0,0))
+    self.image.set_colorkey(transColor)
     #self.base_image = self.image = pygame.image.load("")
     #self._base_rect = self.image.get_rect()
 
