@@ -1,4 +1,5 @@
 import pygame
+
 class Block:
   def __init__(self, x, y):
     #block1
@@ -8,6 +9,8 @@ class Block:
     self.rect = self.image.get_rect()
     self.rect.x= x
     self.rect.y= y
+    self.w= self.image.get_width()
+    self.h= self.image.get_height()
     #block2
     #self.image = pygame.image.load("assets/block2.png")
     #self.image= pygame.transform.scale(self.image,(40,40))

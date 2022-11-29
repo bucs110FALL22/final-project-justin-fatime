@@ -103,9 +103,28 @@ class Screens():
     #draw launcher
     launcher = Launcher(0,270)
     screen.blit(launcher.image, launcher.rect)
-    #draw character
-    character = Character(50,270)
-    screen.blit(character.image, character.rect)
+    #draw character 
+    sprite = Character(*screen.get_rect().center)
+    group = pygame.sprite.Group([
+    Character(screen.get_width() // 3, screen.get_height() // 3) 
+  ])
+    sprite = Character(*screen.get_rect().center)
+    group = pygame.sprite.Group([Character(screen.get_width() // 3, screen.get_height() // 3)])
+    running= True
+    while running:
+      events = pygame.event.get()
+      clock = pygame.time.Clock()
+      clock.tick(60)
+      group.update(events)
+      #screen.fill('light blue')
+      group.draw(screen)
+      pygame.display.flip()
+    #draw blocks for level 1
+    if level==1:
+        block= Block(750,400)
+        screen.blit(block.image,block.rect)
+        block2= Block(730,400)
+        screen.blit(block2.image, block2.rect)
     #pause button
     pygame.draw.rect(screen,'black',(10,10,button_size/2,button_size/2))
     pygame.draw.rect(screen,background,(18.33,10,button_size/6,button_size/2))
