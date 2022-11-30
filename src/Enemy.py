@@ -1,21 +1,22 @@
 import pygame
 
-class Enemy():
+class Enemy(pygame.sprite.Sprite):
   def __init__(self, x, y):
-    self.image = pygame.image.load("")
-    self.rect = self.image.get_rect()
-    self.rect.x = x
-    self.rect.y = y
-    self.health = 100
-    self.alive = True
-  def getX(self):
-#	sets x coordinates value of enemy
-#	args: int
-#	return: returns integer and location of enemy
-    return self.x
-  def getY(self):
-#	sets y cordinates value of enemy
-#	args: int
-#	return: returns integer and location of enemy
-    return self.y
+     super().__init__()
+     self.image= pygame.image.load("assets/enemy.png").convert_alpha()
+     self.rect = self.image.get_rect()
+     self.image = pygame.transform.scale(self.image,(40,40))
+     self.image.set_colorkey((255,255,255))
+     self.rect = self.image.get_rect(center= (x,y))
+     self.rect.x = x
+     self.rect.y = y
+     #self.health = 100
+     #self.alive = True
+
+    
+
+    
+
+  
+  
 

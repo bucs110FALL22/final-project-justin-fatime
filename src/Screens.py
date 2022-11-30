@@ -1,5 +1,6 @@
 import pygame
 from src.Launcher import Launcher
+from src.Enemy import Enemy
 
 class Screens():
   def __init__(self):
@@ -33,12 +34,12 @@ class Screens():
 
   def update_game(self,screen,level):
     bg = pygame.image.load("assets/level"+ str(level)+"bg.png")  
-    
     #creates sprites and sprite group 
     launcher_group = pygame.sprite.Group()
     launcher= Launcher(0,450)
     launcher_group.add(launcher)
     character_group = pygame.sprite.Group()
+    
     clock = pygame.time.Clock()
     #launcher + character movement
     #pause button
@@ -52,14 +53,26 @@ class Screens():
             if pause_select.collidepoint(mouse_click_pos):
               in_pause = True
               run = False
-        # draws a new character when mouse lciked 
+        # draws a new character when mouse clicked 
          if event.type == pygame.MOUSEBUTTONDOWN:
           character_group.add(launcher.draw_new_character())
+           
       screen.blit(bg,(0,0))
       character_group.draw(screen)
       launcher_group.draw(screen)
       character_group.update()
       launcher_group.update()
+      if level == 1:
+          enemy_group= pygame.sprite.Group()
+          enemy1= Enemy(600,100)
+          enemy2= Enemy(600,250)
+          enemy3 = Enemy(600,400)
+          enemy4 = Enemy(400,150)
+          enemy5 = Enemy(400,300)
+          enemy_group.add(enemy1, enemy2, enemy3, enemy4, enemy5)
+          enemy_group.draw(screen)
+          enemy_group.update()
+      pygame.sprite.groupcollide(character_group, enemy_group, True, True)
       pygame.display.flip()
       clock.tick(60)
     return in_pause

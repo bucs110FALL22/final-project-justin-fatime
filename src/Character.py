@@ -18,6 +18,12 @@ class Character(pygame.sprite.Sprite):
     if self.rect.x >= screen_width + 100:
       self.kill()
 
+
+
+    
+
+    
+
     
   
 
