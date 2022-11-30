@@ -11,15 +11,14 @@ class Controller:
     #set size of screem
     screen_demensions = [800,450]
     self.screen = pygame.display.set_mode(size=(screen_demensions[0],screen_demensions[1]))
+    self.controller = Screens()
     
   def mainloop(self):
     in_menu = True
-    #Create an instance on your controller object
-    controller = Screens()
       #event loop
     while in_menu == True:
       #Call your mainloop
-      playerSelection = controller.update_menu(self.screen)
+      playerSelection = self.controller.update_menu(self.screen)
       if playerSelection == 1:
         self.gameloop(playerSelection)
       elif playerSelection == 2:
@@ -35,12 +34,11 @@ class Controller:
   def gameloop(self,level):
     in_game = True
     in_pause = False
-    controller = Screens()
     #event loop
     while in_game == True:
       #Call your mainloop
       if in_pause == False:
-        in_pause = controller.update_game(self.screen,level)     
+        in_pause = self.controller.update_game(self.screen,level)     
       elif in_pause == True:
         controller.update_game(self.screen,level)
         controller.update_pause(self.screen,level)

@@ -12,10 +12,19 @@ class Launcher(pygame.sprite.Sprite):
     transColor = self.image.get_at((0,0))
     self.image.set_colorkey(transColor)
     self.up_direction = True
+    self.vel
     #self.base_image = self.image = pygame.image.load("")
     #self._base_rect = self.image.get_rect()
-  
+
+  #update sprite position
   def update(self):
+    if self.rect.y == 0:
+      self.up_direction = False
+    if self.rect.y == 450:
+      self.up_direction = True
+    if self.up_direction == True:
+      self.rect.y += self.vel
+      
     
   def launch_angle(self):
     mouse_x = 1 #get x value of mouse
