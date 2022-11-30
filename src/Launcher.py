@@ -1,18 +1,22 @@
 import math
 import pygame
 
-class Launcher:
+class Launcher(pygame.sprite.Sprite):
   def __init__(self, x, y):
-    self.image =pygame.image.load("assets/slingshot.png").convert()
+    super().__init__()
+    self.image = pygame.image.load("assets/slingshot.png").convert_alpha()
     self.rect = self.image.get_rect()
-    self.image= pygame.transform.scale(self.image,(150,150))
+    self.image = pygame.transform.scale(self.image,(150,150))
     self.rect.x = x
     self.rect.y = y
     transColor = self.image.get_at((0,0))
     self.image.set_colorkey(transColor)
+    self.up_direction = True
     #self.base_image = self.image = pygame.image.load("")
     #self._base_rect = self.image.get_rect()
-
+  
+  def update(self):
+    
   def launch_angle(self):
     mouse_x = 1 #get x value of mouse
     mouse_y = 1 

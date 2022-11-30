@@ -9,7 +9,7 @@ class Character(pygame.sprite.Sprite):
     self.rect = self.image.get_rect(center=(x,y))
     self.image.set_colorkey((255,255,255))
     self.dragging= False
-    self.pos= (270,400)
+    self.pos= (270,300)
   
   def update(self, events):
      for event in events:
