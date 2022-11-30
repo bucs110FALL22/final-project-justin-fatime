@@ -15,6 +15,7 @@ class Controller:
   def mainloop(self):
     #main loop of program that calls other loops into it. displays menu and buttons for different levels and to quit
     #
+    #
     in_menu = True
       #event loop
     while in_menu == True:
@@ -27,33 +28,43 @@ class Controller:
     return playerSelection
       
   def gameloop(self,level):
+    #
+    #
+    #
     in_game = True
-    in_pause = False
+    in_pause = 'no'
     #event loop
     while in_game == True:
       #Call your mainloop
-      if in_pause == False:
+      if in_pause == 'no':
         in_pause = self.controller.update_game(self.screen,level)
-      elif in_pause == True:
-        self.controller.update_pause(self.screen,level)
-        exit_select = pygame.Rect(250,175,80,80)
-        resume_select = pygame.Rect(418,175,80,80)
-        for event in pygame.event.get():
-          if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_click_pos = event.pos
-            if exit_select.collidepoint(mouse_click_pos):
-              self.mainloop()
-            elif resume_select.collidepoint(mouse_click_pos):
-              in_pause = False
+      elif in_pause == 'yes':
+        self.mainloop()
+        #self.controller.update_pause(self.screen,level)
+        #exit_select = pygame.Rect(250,175,80,80)
+        #resume_select = pygame.Rect(418,175,80,80)
+        #for event in pygame.event.get():
+        #  if event.type == pygame.MOUSEBUTTONDOWN:
+        #    mouse_click_pos = event.pos
+        #    if exit_select.collidepoint(mouse_click_pos):
+        #      self.mainloop()
+        #    elif resume_select.collidepoint(mouse_click_pos):
+        #      in_pause = False
+      elif in_pause == 'lost':
+        self.gameoverloop('lost')
+          #self.gameoverLoop("lost")
+      elif in_pause == 'won':
+        self.gameoverloop('won')
+          #self.gameoverLoop("won")
       #update data
       #redraw
       pygame.display.flip()
 
-  def gameoverloop(self,alive,enemiesLeft):
-    gameover = False
-    game = ""
-    if alive == False or enemiesLeft == 0:
-      gameover = True
+  def gameoverloop(self,game):
+    #
+    #
+    #
+    gameover = True
       #event loop
     while gameover == True:
       if game == "won":

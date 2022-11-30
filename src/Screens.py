@@ -40,8 +40,7 @@ class Screens():
     launcher= Launcher(0,450)
     launcher_group.add(launcher)
     character_group = pygame.sprite.Group()
-    #enemy_group = pygame.sprite.Group()
-    #enemy_group = Enemy(800,random.randrange(0,450))
+    
     
     clock = pygame.time.Clock()
     #launcher + character movement
@@ -54,33 +53,42 @@ class Screens():
          if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_click_pos = event.pos
             if pause_select.collidepoint(mouse_click_pos):
-              in_pause = True
+              in_pause = 'yes'
               run = False
         # draws a new character when mouse clicked 
          key_input = pygame.key.get_pressed()   
          if key_input[pygame.K_SPACE]:
            character_group.add(launcher.draw_new_character())
+          #check if enemy made it past character and if so the game is lost
+        # if enemy_group.pos.x == 400:
+         #  game = "lost"
+         #  return game 
+          #check if game won
+          #if enemies == 0:
+           #game = 'won'
+           #return game
+           
            
       screen.blit(bg,(0,0))
       character_group.draw(screen)
       launcher_group.draw(screen)
-      #enemy_group.draw(screen)
+     # enemy_group.draw(screen)
       character_group.update()
       launcher_group.update()
       #if level == 1:
-         # enemy_group= pygame.sprite.Group()
-          #enemy1= Enemy(600,100)
-          #enemy2= Enemy(600,250)
-          #enemy3 = Enemy(600,400)
-          #enemy4 = Enemy(400,150)
-          #enemy5 = Enemy(400,300)
-          #enemy_group.add(enemy1, enemy2, enemy3, enemy4, enemy5)
+          #enemy_group= pygame.sprite.Group()
+          #enemy = Enemy()
+          #enemy_group.add(enemy)
           #enemy_group.draw(screen)
       #pygame.sprite.groupcollide(character_group, enemy_group, True, True)
       pygame.display.flip()
       clock.tick(60)
     return in_pause
     
-  def update_pause(self,screen,level):
+  def game_won(self,screen,level):
+    pause = pygame.image.load("assets/pause.png")
+    screen.blit(pause,(225,100))
+    
+  def game_lost(self,screen,level):
     pause = pygame.image.load("assets/pause.png")
     screen.blit(pause,(225,100))

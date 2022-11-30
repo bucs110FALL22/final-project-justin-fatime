@@ -10,9 +10,10 @@ class Enemy(pygame.sprite.Sprite):
      self.rect = self.image.get_rect()
      self.rect.x = x
      self.rect.y = y
+     self.vel = 5
 
      def update(self):
-       self.rect.x += 5
+       self.rect.x += self.vel
 
     
 
