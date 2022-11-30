@@ -1,20 +1,20 @@
 import math
 import pygame
-
+from src.Character import Character
 class Launcher(pygame.sprite.Sprite):
   def __init__(self, x, y):
     super().__init__()
-    self.image = pygame.image.load("assets/slingshot.png").convert_alpha()
+    self.image = pygame.image.load("assets/launcher.png").convert_alpha()
     self.rect = self.image.get_rect()
-    self.image = pygame.transform.scale(self.image,(150,150))
+    self.image = pygame.transform.scale(self.image,(40,40))
+    self.image= pygame.transform.flip(self.image, False, True)
+    self.image.set_colorkey((255,255,255))
     self.rect.x = x
     self.rect.y = y
     transColor = self.image.get_at((0,0))
     self.image.set_colorkey(transColor)
     self.up_direction = True
-    self.vel
-    #self.base_image = self.image = pygame.image.load("")
-    #self._base_rect = self.image.get_rect()
+    self.vel= 2
 
   #update sprite position
   def update(self):
@@ -28,7 +28,12 @@ class Launcher(pygame.sprite.Sprite):
       self.rect.y -= self.vel
     if self.up_direction == False:
       self.rect.y += self.vel
-      
+
+  #returns the position for new character
+  def draw_new_character(self):
+    return Character(self.rect.x, self.rect.y) 
+
+
     
   def launch_angle(self):
     mouse_x = 1 #get x value of mouse

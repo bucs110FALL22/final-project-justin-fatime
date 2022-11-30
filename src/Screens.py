@@ -1,7 +1,6 @@
 import pygame
-from src.Character import Character
 from src.Launcher import Launcher
-from src.Block import Block
+
 class Screens():
   def __init__(self):
     pass
@@ -44,30 +43,31 @@ class Screens():
    #   bg = pygame.image.load("assets/level4bg.png")
       
     screen.blit(bg,(0,0))
-    #draw launcher
-    #launcher = Launcher(0,270)
-    #screen.blit(launcher.image, launcher.rect)
-    #draw character 
-    #sprite = Character(*screen.get_rect().center)
-    #group = pygame.sprite.Group([
-    #Character(screen.get_width() // 3, screen.get_height() // 3) 
-  #])
-    #sprite = Character(*screen.get_rect().center)
-    #group = pygame.sprite.Group([Character(screen.get_width() // 3, screen.get_height() // 3)])
     
-    #events = pygame.event.get()
-    #clock = pygame.time.Clock()
-    #clock.tick(60)
-    #group.update(events)
-    #screen.fill('light blue')
-    #group.draw(screen)
-    #pygame.display.flip()
-    #draw blocks for level 1
-    #if level==1:
-        #block= Block(750,400)
-        #screen.blit(block.image,block.rect)
-       # block2= Block(730,400)
-        #screen.blit(block2.image, block2.rect)
+    #creates sprites and sprite group 
+    launcher_group = pygame.sprite.Group()
+    launcher= Launcher(0,450)
+    launcher_group.add(launcher)
+    character_group = pygame.sprite.Group()
+    clock = pygame.time.Clock()
+    #launcher + character movement
+    run = True
+    while run:
+      for event in pygame.event.get():
+         if event.type == pygame.QUIT:
+          run = False
+        # draws a new character when mouse lciked 
+         if event.type == pygame.MOUSEBUTTONDOWN:
+          character_group.add(launcher.draw_new_character())
+      screen.blit(bg,(0,0))
+      character_group.draw(screen)
+      launcher_group.draw(screen)
+      character_group.update()
+      launcher_group.update()
+      pygame.display.flip()
+      clock.tick(60)
+    pygame.quit()
+    exit()
     #pause button
     in_pause = False
     pause_select = pygame.Rect(10,10,25,25)

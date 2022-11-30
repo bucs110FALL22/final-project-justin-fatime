@@ -1,6 +1,5 @@
 import pygame
 from src.Screens import Screens
-from src.Character import Character
 
 class Controller:
   
