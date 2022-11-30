@@ -13,6 +13,8 @@ class Controller:
     self.controller = Screens()
     
   def mainloop(self):
+    #main loop of program that calls other loops into it. displays menu and buttons for different levels and to quit
+    #
     in_menu = True
       #event loop
     while in_menu == True:
@@ -47,13 +49,19 @@ class Controller:
       #redraw
       pygame.display.flip()
 
-  def gameoverloop(self,livesLeft):
+  def gameoverloop(self,alive,enemiesLeft):
     gameover = False
-    if livesLeft == 0:
+    game = ""
+    if alive == False or enemiesLeft == 0:
       gameover = True
       #event loop
     while gameover == True:
-      pass
+      if game == "won":
+        #show level complete screen and send back to menu
+        pass
+      else:
+        #show back to menu or restart
+        pass
 
       #update data
 

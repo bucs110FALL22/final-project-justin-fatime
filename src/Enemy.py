@@ -7,11 +7,12 @@ class Enemy(pygame.sprite.Sprite):
      self.rect = self.image.get_rect()
      self.image = pygame.transform.scale(self.image,(40,40))
      self.image.set_colorkey((255,255,255))
-     self.rect = self.image.get_rect(center= (x,y))
+     self.rect = self.image.get_rect()
      self.rect.x = x
      self.rect.y = y
-     #self.health = 100
-     #self.alive = True
+
+     def update(self):
+       self.rect.x += 5
 
     
 
