@@ -18,11 +18,15 @@ class Launcher(pygame.sprite.Sprite):
 
   #update sprite position
   def update(self):
+    #set sprite direction
     if self.rect.y == 0:
       self.up_direction = False
     if self.rect.y == 450:
       self.up_direction = True
+    #sprite movement
     if self.up_direction == True:
+      self.rect.y -= self.vel
+    if self.up_direction == False:
       self.rect.y += self.vel
       
     

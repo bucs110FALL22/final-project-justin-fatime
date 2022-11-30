@@ -33,14 +33,15 @@ class Screens():
     return playerSelection
 
   def update_game(self,screen,level):
-    if level == 1:
-      bg = pygame.image.load("assets/level1bg.png")
-    elif level == 2:
-      bg = pygame.image.load("assets/level2bg.png")
-    elif level == 3:
-      bg = pygame.image.load("assets/level3bg.png")
-    elif level == 4:
-      bg = pygame.image.load("assets/level4bg.png")
+    bg = pygame.image.load("assets/level"+ str(level)+"bg.png")
+    #if level == 1:
+     # bg = pygame.image.load("assets/level1bg.png")
+  #  elif level == 2:
+   #   bg = pygame.image.load("assets/level2bg.png")
+   # elif level == 3:
+   #   bg = pygame.image.load("assets/level3bg.png")
+   # elif level == 4:
+   #   bg = pygame.image.load("assets/level4bg.png")
       
     screen.blit(bg,(0,0))
     #draw launcher

@@ -19,13 +19,7 @@ class Controller:
     while in_menu == True:
       #Call your mainloop
       playerSelection = self.controller.update_menu(self.screen)
-      if playerSelection == 1:
-        self.gameloop(playerSelection)
-      elif playerSelection == 2:
-        self.gameloop(playerSelection)
-      elif playerSelection == 3:
-        self.gameloop(playerSelection)
-      elif playerSelection == 4:
+      if playerSelection != 0:
         self.gameloop(playerSelection)
       #redraw
       pygame.display.flip()
@@ -40,8 +34,8 @@ class Controller:
       if in_pause == False:
         in_pause = self.controller.update_game(self.screen,level)     
       elif in_pause == True:
-        controller.update_game(self.screen,level)
-        controller.update_pause(self.screen,level)
+        self.controller.update_game(self.screen,level)
+        self.controller.update_pause(self.screen,level)
         exit_select = pygame.Rect(250,175,80,80)
         resume_select = pygame.Rect(418,175,80,80)
         for event in pygame.event.get():
