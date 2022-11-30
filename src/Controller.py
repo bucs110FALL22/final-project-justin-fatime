@@ -31,9 +31,8 @@ class Controller:
     while in_game == True:
       #Call your mainloop
       if in_pause == False:
-        in_pause = self.controller.update_game(self.screen,level)     
+        in_pause = self.controller.update_game(self.screen,level)
       elif in_pause == True:
-        self.controller.update_game(self.screen,level)
         self.controller.update_pause(self.screen,level)
         exit_select = pygame.Rect(250,175,80,80)
         resume_select = pygame.Rect(418,175,80,80)
@@ -48,8 +47,10 @@ class Controller:
       #redraw
       pygame.display.flip()
 
-  def gameoverloop(self):
+  def gameoverloop(self,livesLeft):
     gameover = False
+    if livesLeft == 0:
+      gameover = True
       #event loop
     while gameover == True:
       pass

@@ -32,17 +32,7 @@ class Screens():
     return playerSelection
 
   def update_game(self,screen,level):
-    bg = pygame.image.load("assets/level"+ str(level)+"bg.png")
-    #if level == 1:
-     # bg = pygame.image.load("assets/level1bg.png")
-  #  elif level == 2:
-   #   bg = pygame.image.load("assets/level2bg.png")
-   # elif level == 3:
-   #   bg = pygame.image.load("assets/level3bg.png")
-   # elif level == 4:
-   #   bg = pygame.image.load("assets/level4bg.png")
-      
-    screen.blit(bg,(0,0))
+    bg = pygame.image.load("assets/level"+ str(level)+"bg.png")  
     
     #creates sprites and sprite group 
     launcher_group = pygame.sprite.Group()
@@ -51,11 +41,17 @@ class Screens():
     character_group = pygame.sprite.Group()
     clock = pygame.time.Clock()
     #launcher + character movement
+    #pause button
+    in_pause = False
+    pause_select = pygame.Rect(10,10,25,25)   
     run = True
     while run:
       for event in pygame.event.get():
-         if event.type == pygame.QUIT:
-          run = False
+         if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_click_pos = event.pos
+            if pause_select.collidepoint(mouse_click_pos):
+              in_pause = True
+              run = False
         # draws a new character when mouse lciked 
          if event.type == pygame.MOUSEBUTTONDOWN:
           character_group.add(launcher.draw_new_character())
@@ -66,16 +62,6 @@ class Screens():
       launcher_group.update()
       pygame.display.flip()
       clock.tick(60)
-    pygame.quit()
-    exit()
-    #pause button
-    in_pause = False
-    pause_select = pygame.Rect(10,10,25,25)
-    for event in pygame.event.get():
-          if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_click_pos = event.pos
-            if pause_select.collidepoint(mouse_click_pos):
-              in_pause = True
     return in_pause
     
   def update_pause(self,screen,level):
