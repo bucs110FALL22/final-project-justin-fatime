@@ -13,11 +13,17 @@ class Enemy(pygame.sprite.Sprite):
      self.rect.y = random.randrange(100,400)
      self.speed = speed
      
-    
   def update(self):
       self.rect.x -= self.speed
       if self.rect.x == 0:
-        self.kill()
+        self.speed = 0
+  def position_x(self):
+    return self.rect.x
+        
+        
+        
+        
+        
         
 
       

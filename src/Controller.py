@@ -42,27 +42,17 @@ class Controller:
         in_pause = self.controller.update_game(self.screen,level)
       elif in_pause == 'yes':
         self.mainloop()
-        #self.controller.update_pause(self.screen,level)
-        #exit_select = pygame.Rect(250,175,80,80)
-        #resume_select = pygame.Rect(418,175,80,80)
-        #for event in pygame.event.get():
-        #  if event.type == pygame.MOUSEBUTTONDOWN:
-        #    mouse_click_pos = event.pos
-        #    if exit_select.collidepoint(mouse_click_pos):
-        #      self.mainloop()
-        #    elif resume_select.collidepoint(mouse_click_pos):
-        #      in_pause = False
       elif in_pause == 'lost':
-        self.gameoverloop('lost')
+        self.gameoverloop('lost',level)
           #self.gameoverLoop("lost")
       elif in_pause == 'won':
-        self.gameoverloop('won')
+        self.gameoverloop('won',level)
           #self.gameoverLoop("won")
       #update data
       #redraw
       pygame.display.flip()
 
-  def gameoverloop(self,game):
+  def gameoverloop(self,game,level):
     #displays pop up after game is completed on if the user won or lost
     #args: self and also if the user won the game(destroyed all the enemies) or lost (enemies reached player)
     #return: no return value, only displays win or lose screen and shows buttons to continue 
@@ -71,10 +61,28 @@ class Controller:
     while gameover == True:
       if game == "won":
         #show level complete screen and send back to menu
-        pass
-      else:
+        self.controller.game_won(self.screen,level)
+        exit_select = pygame.Rect(250,175,80,80)
+        resume_select = pygame.Rect(418,175,80,80)
+        for event in pygame.event.get():
+          if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_click_pos = event.pos
+            if exit_select.collidepoint(mouse_click_pos):
+              self.mainloop()
+            elif resume_select.collidepoint(mouse_click_pos):
+              self.gameloop(level)
+      elif game == 'lost':
         #show back to menu or restart
-        pass
+        self.controller.game_lost(self.screen,level)
+        exit_select = pygame.Rect(250,175,80,80)
+        resume_select = pygame.Rect(418,175,80,80)
+        for event in pygame.event.get():
+          if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_click_pos = event.pos
+            if exit_select.collidepoint(mouse_click_pos):
+              self.mainloop()
+            elif resume_select.collidepoint(mouse_click_pos):
+              self.gameloop(level)
 
       #update data
 

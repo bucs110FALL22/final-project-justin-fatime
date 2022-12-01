@@ -2,7 +2,6 @@ import pygame
 from src.Launcher import Launcher
 from src.Enemy import Enemy
 
-
 class Screens():
   def __init__(self):
     pass
@@ -44,28 +43,31 @@ class Screens():
     if str(level) == "1":
       enemy_group1= pygame.sprite.Group()
       for i in range(0,2):
+        enemies = 2
         enemy= Enemy(2)
         enemy_group1.add(enemy)
     if str(level) == "2":
       enemy_group2= pygame.sprite.Group()
       for i in range(0,4):
+        enemies = 2
         enemy= Enemy(2)
         enemy_group2.add(enemy)
     if str(level) == "3":
       enemy_group3= pygame.sprite.Group()
       for i in range(0,5):
+        enemies = 5
         enemy= Enemy(5)
         enemy_group3.add(enemy)
     if str(level) == "4":
       enemy_group4= pygame.sprite.Group()
       for i in range(0,10):
+        enemies = 5
         enemy= Enemy(5)
         enemy_group4.add(enemy)
-      
     
     #launcher + character movement
     #pause button
-    in_pause = False
+    in_pause = 'no'
     pause_select = pygame.Rect(10,10,25,25)   
     run = True
     while run:
@@ -81,9 +83,14 @@ class Screens():
          if key_input[pygame.K_SPACE]:
            character_group.add(launcher.draw_new_character())
           #check if enemy made it past character and if so the game is lost
+
+      #if enemy = at x = 20:
+           #in_pause = 'lost'
+      #if enemys left = 0:
+           #in_pause = 'won'
          #if enemy_group.rect.x == 400:
-           #game = "lost"
-           #return game 
+          # game = "lost"
+          # return game 
           #check if game won
           #if enemies == 0:
            #game = 'won'
@@ -94,19 +101,52 @@ class Screens():
         enemy_group1.draw(screen)
         enemy_group1.update()
         pygame.sprite.groupcollide(character_group, enemy_group1, True, True)
+        
+        #check if won or lost
+        if not enemy_group1:
+         in_pause = 'won'
+         run = False
+        elif enemy.position_x() == 20:
+          in_pause = 'lost'
+          run = False
+        
       elif level == 2:
         enemy_group2.draw(screen)
         enemy_group2.update()
         pygame.sprite.groupcollide(character_group, enemy_group2, True, True)
+        
+        #check if won
+        if not enemy_group2:
+         in_pause = 'won'
+         run = False
+        elif enemy.position_x() == 20:
+          in_pause = 'lost'
+          run = False
+        
       elif level == 3:
         enemy_group3.draw(screen)
         enemy_group3.update()
         pygame.sprite.groupcollide(character_group, enemy_group3, True, True)
+        #check if won
+        if not enemy_group3:
+         in_pause = 'won'
+         run = False
+        elif enemy.position_x() == 20:
+          in_pause = 'lost'
+          run = False
+          
       elif level == 4:
         enemy_group4.draw(screen)
         enemy_group4.update()
         pygame.sprite.groupcollide(character_group, enemy_group4, True, True)
-        #pygame.sprite.spritecollideany(wall, enemy_group4, True, True)
+        #check if won
+        if not enemy_group4:
+         in_pause = 'won'
+         run = False
+        elif enemy.position_x() == 20:
+          in_pause = 'lost'
+          run = False
+          
       character_group.draw(screen)
       launcher_group.draw(screen)
       character_group.update()
