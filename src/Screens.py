@@ -1,7 +1,7 @@
 import pygame
 from src.Launcher import Launcher
 from src.Enemy import Enemy
-import random
+
 
 class Screens():
   def __init__(self):
@@ -42,21 +42,34 @@ class Screens():
     launcher_group.add(launcher)
     character_group = pygame.sprite.Group()
     if str(level) == "1":
-      enemy_group= pygame.sprite.Group()
-      for i in range (0,5):
-        enemy = Enemy(800, random.randrange(80,400))
-        enemy_group.add(enemy)
+      enemy_group1= pygame.sprite.Group()
+      for i in range(0,2):
+        enemy= Enemy(2)
+        enemy_group1.add(enemy)
     if str(level) == "2":
-      for i in range (0,3):
-        enemy1_group = pygame.sprite.Group()
-        enemy1 = Enemy(800, random.randrange(80,400))
-        enemy1_group.add(enemy1)
+      enemy_group2= pygame.sprite.Group()
+      for i in range(0,4):
+        enemy= Enemy(2)
+        enemy_group2.add(enemy)
+    if str(level) == "3":
+      enemy_group3= pygame.sprite.Group()
+      for i in range(0,5):
+        enemy= Enemy(5)
+        enemy_group3.add(enemy)
+    if str(level) == "4":
+      enemy_group4= pygame.sprite.Group()
+      for i in range(0,10):
+        enemy= Enemy(5)
+        enemy_group4.add(enemy)
+      
+    
     #launcher + character movement
     #pause button
     in_pause = False
     pause_select = pygame.Rect(10,10,25,25)   
     run = True
     while run:
+      #dt = clock.tick(30)/1000
       for event in pygame.event.get():
          if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_click_pos = event.pos
@@ -76,18 +89,24 @@ class Screens():
            #game = 'won'
            #return game
       screen.blit(bg,(0,0))
+      #wall = pygame.Rect((0,0),(10,450))
       if level == 1:
-        enemy_group.draw(screen)
-        enemy_group.update()
-        pygame.sprite.groupcollide(character_group, enemy_group, True, True)
+        enemy_group1.draw(screen)
+        enemy_group1.update()
+        pygame.sprite.groupcollide(character_group, enemy_group1, True, True)
       elif level == 2:
-        enemy1_group.draw(screen)
-        enemy1_group.update()
-        pygame.sprite.groupcollide(character_group, enemy1_group, True, True)
+        enemy_group2.draw(screen)
+        enemy_group2.update()
+        pygame.sprite.groupcollide(character_group, enemy_group2, True, True)
       elif level == 3:
-        pass
+        enemy_group3.draw(screen)
+        enemy_group3.update()
+        pygame.sprite.groupcollide(character_group, enemy_group3, True, True)
       elif level == 4:
-        pass
+        enemy_group4.draw(screen)
+        enemy_group4.update()
+        pygame.sprite.groupcollide(character_group, enemy_group4, True, True)
+        #pygame.sprite.spritecollideany(wall, enemy_group4, True, True)
       character_group.draw(screen)
       launcher_group.draw(screen)
       character_group.update()
