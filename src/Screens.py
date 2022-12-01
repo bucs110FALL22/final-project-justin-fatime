@@ -76,14 +76,18 @@ class Screens():
            #game = 'won'
            #return game
       screen.blit(bg,(0,0))
-      if str(level) == "1":
+      if level == 1:
         enemy_group.draw(screen)
         enemy_group.update()
         pygame.sprite.groupcollide(character_group, enemy_group, True, True)
-      if str(level) == "2":
+      elif level == 2:
         enemy1_group.draw(screen)
         enemy1_group.update()
         pygame.sprite.groupcollide(character_group, enemy1_group, True, True)
+      elif level == 3:
+        pass
+      elif level == 4:
+        pass
       character_group.draw(screen)
       launcher_group.draw(screen)
       character_group.update()

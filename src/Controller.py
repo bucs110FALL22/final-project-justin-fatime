@@ -5,6 +5,8 @@ class Controller:
   
   def __init__(self):
     #setup pygame data
+    #only argument is self
+    #no return value
     pygame.init()
     pygame.display.init()
     #set size of screem
@@ -14,8 +16,8 @@ class Controller:
     
   def mainloop(self):
     #main loop of program that calls other loops into it. displays menu and buttons for different levels and to quit
-    #
-    #
+    #args: only self
+    #return: returns what level the user selected so that the gameloop can be set
     in_menu = True
       #event loop
     while in_menu == True:
@@ -28,9 +30,9 @@ class Controller:
     return playerSelection
       
   def gameloop(self,level):
-    #
-    #
-    #
+    #runs the game screen
+    #args: self and also what level to choose
+    #return: no return value
     in_game = True
     in_pause = 'no'
     #event loop
@@ -61,9 +63,9 @@ class Controller:
       pygame.display.flip()
 
   def gameoverloop(self,game):
-    #
-    #
-    #
+    #displays pop up after game is completed on if the user won or lost
+    #args: self and also if the user won the game(destroyed all the enemies) or lost (enemies reached player)
+    #return: no return value, only displays win or lose screen and shows buttons to continue 
     gameover = True
       #event loop
     while gameover == True:
