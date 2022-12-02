@@ -132,14 +132,14 @@ class Screens():
         pygame.sprite.groupcollide(character_group, enemy_group1, True, True)
         #check if won or lost
         if not enemy_group1:
+          font = pygame.font.SysFont(None,24) 
+          WHITE = ((255,255,255))
           #if the current user score is higher then their previous score then update highscore
           if score > self.highscore:
             self.highscore = score
           #display highscore on screen
-          font = pygame.font.SysFont(None,24) 
-          WHITE = ((255,255,255))
-          img = font.render('Highscore: ' + str(self.highscore), True, (WHITE))
-          screen.blit(img,(225,350))
+          img1 = font.render('Highscore: ' + str(self.highscore), True, (WHITE))
+          screen.blit(img1,(225,350))
           in_pause = 'won'
           run = False
         for i in enemy_group1:

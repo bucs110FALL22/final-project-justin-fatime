@@ -36,7 +36,7 @@ Complete Game Screen: This screen will conclude each level displaying a differen
 - **Final GUI**
 ![image](etc/image.png)
 ![image](etc/image_2.png)
-![image](etc/image_3.png)
+![image](etc/image_20.png)
 ![image](etc/image_4.png)
 ![image](etc/image_5.png)
 ![image](etc/image_6.png)
@@ -54,12 +54,10 @@ Complete Game Screen: This screen will conclude each level displaying a differen
 ## Program Design
 
 * Non-Standard libraries
-      
+     
 * Class Interface Design
-    * << A simple drawing that shows the class relationships in your code (see below for an example). This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm. >>
-        * ![class diagram](assets/class_diagram.jpg) 
 * Classes
-
+![image](etc/image_21.png)
 Class Name:
 Character
 Instance Variables:
@@ -164,3 +162,4 @@ Justin was responsible for creating the controller class and screens class. We c
 |  4                   | game ends and pop up | display changes to gameover screen|
 |  5                   | leave game,repeat level, or continue | display option    |
 |  6                   | previous steps depending on user | display changes to screen|
+

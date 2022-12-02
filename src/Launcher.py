@@ -31,6 +31,7 @@ class Launcher(pygame.sprite.Sprite):
   def draw_new_character(self):
     #returns a Character using the position of the launcher
     #only argument is itself
+    #returns current position of launcher and assigns those values to a newly created character
     return Character(self.rect.x + 50 , self.rect.y) 
 
 
