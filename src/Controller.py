@@ -70,7 +70,10 @@ class Controller:
             if exit_select.collidepoint(mouse_click_pos):
               self.mainloop()
             elif resume_select.collidepoint(mouse_click_pos):
-              self.gameloop(level)
+              if level < 4:
+                self.gameloop(level+1)
+              else:
+                self.mainloop()
       elif game == 'lost':
         #show back to menu or restart
         self.controller.game_lost(self.screen,level)

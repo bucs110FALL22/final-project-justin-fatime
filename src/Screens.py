@@ -34,7 +34,7 @@ class Screens():
 
   def update_game(self,screen,level):
     bg = pygame.image.load("assets/level"+ str(level)+"bg.png")  
-    clock = pygame.time.Clock()
+    
     #creates sprites and sprite group 
     launcher_group = pygame.sprite.Group()
     launcher= Launcher(0,450)
@@ -69,9 +69,9 @@ class Screens():
     #pause button
     in_pause = 'no'
     pause_select = pygame.Rect(10,10,25,25)   
+    clock = pygame.time.Clock()
     run = True
     while run:
-      #dt = clock.tick(30)/1000
       for event in pygame.event.get():
          if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_click_pos = event.pos
@@ -83,25 +83,12 @@ class Screens():
          if key_input[pygame.K_SPACE]:
            character_group.add(launcher.draw_new_character())
           #check if enemy made it past character and if so the game is lost
-
-      #if enemy = at x = 20:
-           #in_pause = 'lost'
-      #if enemys left = 0:
-           #in_pause = 'won'
-         #if enemy_group.rect.x == 400:
-          # game = "lost"
-          # return game 
-          #check if game won
-          #if enemies == 0:
-           #game = 'won'
-           #return game
+      
       screen.blit(bg,(0,0))
-      #wall = pygame.Rect((0,0),(10,450))
       if level == 1:
         enemy_group1.draw(screen)
         enemy_group1.update()
         pygame.sprite.groupcollide(character_group, enemy_group1, True, True)
-        
         #check if won or lost
         if not enemy_group1:
          in_pause = 'won'
@@ -156,10 +143,10 @@ class Screens():
     return in_pause
     
   def game_won(self,screen,level):
-    pause = pygame.image.load("assets/pause.png")
+    pause = pygame.image.load("assets/levelCompleted.png")
     screen.blit(pause,(225,100))
     
   def game_lost(self,screen,level):
-      pause = pygame.image.load("assets/pause.png")
+      pause = pygame.image.load("assets/loseScreen.png")
       screen.blit(pause,(225,100))
       

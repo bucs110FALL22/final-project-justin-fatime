@@ -14,7 +14,6 @@ class Launcher(pygame.sprite.Sprite):
     self.image.set_colorkey(transColor)
     self.up_direction = True
     self.vel= 4
-
   #update sprite position
   def update(self):
     #set sprite direction
@@ -28,6 +27,6 @@ class Launcher(pygame.sprite.Sprite):
     
   #returns the position for new character
   def draw_new_character(self):
-    return Character(self.rect.x + 50 , self.rect.y) 
+      return Character(self.rect.x + 50 , self.rect.y) 
 
     
