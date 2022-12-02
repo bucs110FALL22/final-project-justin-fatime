@@ -4,13 +4,20 @@ from src.Enemy import Enemy
 
 class Screens():
   def __init__(self):
+    #nothing here
     pass
 
   def update_menu(self,screen):
+    #sets background image of menu
+    #arg: what screen to put image on
+    #displays screen
     background = pygame.image.load("assets/mainScreenBackground.png")
     screen.blit(background, (0,0))
 
   def menuButtons(self):
+    #create location and check if buttons in menu are clicked
+    #only arg. is self
+    #returns which button the player selected
     #update data
     #create button locations and check if pressed
     playerSelection = 0
@@ -35,6 +42,9 @@ class Screens():
     return playerSelection
 
   def update_game(self,screen,level):
+    #creates the image of the game then creates image of characters on screen
+    #args: self, which screen to do this on and which level is being played
+    #returns state of game (in game, or won or lost)
     bg = pygame.image.load("assets/level"+ str(level)+"bg.png")  
     
     #creates sprites and sprite group 
@@ -149,10 +159,16 @@ class Screens():
     return in_pause
     
   def game_won(self,screen,level):
+    #if the level is completed show pop up for completed
+    #arg: self, which screen to blit onto and what level
+    #displays on screen
     pause = pygame.image.load("assets/levelCompleted.png")
     screen.blit(pause,(225,100))
     
   def game_lost(self,screen,level):
+     #if the level is failed show pop up for lost
+    #arg: self, which screen to blit onto and what level
+    #displays on screen
       pause = pygame.image.load("assets/loseScreen.png")
       screen.blit(pause,(225,100))
       

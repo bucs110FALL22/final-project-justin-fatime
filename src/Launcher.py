@@ -1,7 +1,11 @@
 import pygame
 from src.Character import Character
+
 class Launcher(pygame.sprite.Sprite):
   def __init__(self, x, y):
+    #sets up characteristics about launcher
+    #input is self and x y coordinates
+    #sets values
     super().__init__()
     self.image = pygame.image.load("assets/launcher.png").convert_alpha()
     self.rect = self.image.get_rect()
@@ -16,17 +20,17 @@ class Launcher(pygame.sprite.Sprite):
     self.vel= 4
   #update sprite position
   def update(self):
-    #set sprite direction
+    #set sprite direction and controls
+    #only input is self
+    #returns new y value of launcher
     key_input = pygame.key.get_pressed()   
     if key_input[pygame.K_UP]:
       if self.rect.y > 100:
         self.rect.y -= self.vel
     if key_input[pygame.K_DOWN]:
       if self.rect.y < 410:
-        self.rect.y += self.vel
-    
+        self.rect.y += self.vel   
   #returns the position for new character
-  def draw_new_character(self):
-      return Character(self.rect.x + 50 , self.rect.y) 
+
 
     
