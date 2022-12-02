@@ -22,7 +22,8 @@ class Controller:
       #event loop
     while in_menu == True:
       #Call your mainloop
-      playerSelection = self.controller.update_menu(self.screen)
+      self.controller.update_menu(self.screen)
+      playerSelection = self.controller.menuButtons()
       if playerSelection != 0:
         self.gameloop(playerSelection)
       #redraw

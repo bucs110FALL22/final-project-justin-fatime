@@ -7,11 +7,13 @@ class Screens():
     pass
 
   def update_menu(self,screen):
-    playerSelection = 0
     background = pygame.image.load("assets/mainScreenBackground.png")
     screen.blit(background, (0,0))
+
+  def menuButtons(self):
     #update data
     #create button locations and check if pressed
+    playerSelection = 0
     lvl_1_select = pygame.Rect(135,250,50,50)
     lvl_2_select = pygame.Rect(295,250,50,50)
     lvl_3_select = pygame.Rect(455,250,50,50)
@@ -93,9 +95,10 @@ class Screens():
         if not enemy_group1:
          in_pause = 'won'
          run = False
-        elif enemy.position_x() == 20:
-          in_pause = 'lost'
-          run = False
+        for i in enemy_group1:
+          if i.position_x() == 20:
+            in_pause = 'lost'
+            run = False
         
       elif level == 2:
         enemy_group2.draw(screen)
@@ -106,9 +109,10 @@ class Screens():
         if not enemy_group2:
          in_pause = 'won'
          run = False
-        elif enemy.position_x() == 20:
-          in_pause = 'lost'
-          run = False
+        for i in enemy_group2:
+          if i.position_x() == 20:
+            in_pause = 'lost'
+            run = False
         
       elif level == 3:
         enemy_group3.draw(screen)
@@ -118,9 +122,10 @@ class Screens():
         if not enemy_group3:
          in_pause = 'won'
          run = False
-        elif enemy.position_x() == 20:
-          in_pause = 'lost'
-          run = False
+        for i in enemy_group3:
+          if i.position_x() == 20:
+            in_pause = 'lost'
+            run = False
           
       elif level == 4:
         enemy_group4.draw(screen)
@@ -130,9 +135,10 @@ class Screens():
         if not enemy_group4:
          in_pause = 'won'
          run = False
-        elif enemy.position_x() == 20:
-          in_pause = 'lost'
-          run = False
+        for i in enemy_group4:
+          if i.position_x() == 20:
+            in_pause = 'lost'
+            run = False
           
       character_group.draw(screen)
       launcher_group.draw(screen)
