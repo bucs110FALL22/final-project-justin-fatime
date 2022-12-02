@@ -55,6 +55,14 @@ python-versions = ">=3.6.0"
 unicode_backport = ["unicodedata2"]
 
 [[package]]
+name = "httpsproxy-urllib2"
+version = "1.0"
+description = "Python 2.5 urllib2 patched to use CONNECT for https proxies"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -158,7 +166,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "db6516163c25fe8a0730f44c6d7adcd61133ee91c64f328f71d6b67428bef3bb"
+content-hash = "22126fc083cc76783de2bc20e1bec57c1630baf1459a43c95f7f8ea02fe76284"
 
 [metadata.files]
 beautifulsoup4 = []
@@ -166,6 +174,7 @@ bs4 = []
 certifi = []
 cfscrape = []
 charset-normalizer = []
+httpsproxy-urllib2 = []
 idna = []
 kissdownloader = []
 pygame = []

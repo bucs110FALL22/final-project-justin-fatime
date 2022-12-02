@@ -24,12 +24,31 @@ The user is in control of a launcher that they can move vertically using the up 
 
 - **Initial Concept**
   - << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components. >>
-    
+![image](image_15.png)
+
+Level Select: The first screen will showcase buttons with the level numbers. It will detect a mouse click to initiate the game screen for the that level.
+
+Game Screen: Our initial design was a recreation of angry birds where the user was could drag the character to aim it at the enemies on the opposite side of the screen.
+
+Pause Screen: The game screen will have a pause button that initiates the pause screen when clicked. The pause screen will provide the option to resume play or go back to the level screen. 
+
+Complete Game Screen: This screen will conclude each level displaying a different message depending on whether the user completed the level or not. It will also offer a button to replay or go to the next level.
     
 - **Final GUI**
-  - << You should also have a screenshot of each screen for your final GUI >>
 ![image](image.png)
 ![image](image_2.png)
+![image](image_3.png)
+![image](image_4.png)
+![image](image_5.png)
+![image](image_6.png)
+![image](image_7.png)
+![image](image_8.png)
+![image](image_9.png)
+![image](image_10.png)
+![image](image_11.png)
+![image](image_12.png)
+![image](image_13.png)
+
 
 ***        
 

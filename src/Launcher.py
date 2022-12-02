@@ -29,8 +29,10 @@ class Launcher(pygame.sprite.Sprite):
         self.rect.y -= self.vel
     if key_input[pygame.K_DOWN]:
       if self.rect.y < 410:
-        self.rect.y += self.vel   
+        self.rect.y += self.vel  
   #returns the position for new character
+  def draw_new_character(self):
+    return Character(self.rect.x + 50 , self.rect.y) 
 
 
     
