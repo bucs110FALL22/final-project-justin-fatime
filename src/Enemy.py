@@ -19,7 +19,6 @@ class Enemy(pygame.sprite.Sprite):
      self.image=pygame.image.load("assets/enemy.png") #.convert_alpha()
      self.rect = self.image.get_rect()
      self.image = pygame.transform.scale(self.image,(40,40))
-     self.image.set_colorkey((255,255,255))
      self.rect = self.image.get_rect()
      self.rect.x = 800
      self.rect.y = random.randrange(100,400)

@@ -23,8 +23,7 @@ The user is in control of a launcher that they can move vertically using the up 
 ## User Interface Design
 
 - **Initial Concept**
-  - << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components. >>
-![image](image_15.png)
+![image](etc/image_15.png)
 
 Level Select: The first screen will showcase buttons with the level numbers. It will detect a mouse click to initiate the game screen for the that level.
 
@@ -35,19 +34,19 @@ Pause Screen: The game screen will have a pause button that initiates the pause 
 Complete Game Screen: This screen will conclude each level displaying a different message depending on whether the user completed the level or not. It will also offer a button to replay or go to the next level.
     
 - **Final GUI**
-![image](image.png)
-![image](image_2.png)
-![image](image_3.png)
-![image](image_4.png)
-![image](image_5.png)
-![image](image_6.png)
-![image](image_7.png)
-![image](image_8.png)
-![image](image_9.png)
-![image](image_10.png)
-![image](image_11.png)
-![image](image_12.png)
-![image](image_13.png)
+![image](etc/image.png)
+![image](etc/image_2.png)
+![image](etc/image_3.png)
+![image](etc/image_4.png)
+![image](etc/image_5.png)
+![image](etc/image_6.png)
+![image](etc/image_7.png)
+![image](etc/image_8.png)
+![image](etc/image_9.png)
+![image](etc/image_10.png)
+![image](etc/image_11.png)
+![image](etc/image_12.png)
+![image](etc/image_13.png)
 
 
 ***        
@@ -112,11 +111,39 @@ The Project is broken down into the following file structure:
 
 * main.py
 * src
-    * << all of your python files should go here >>
+    ![python](src/Character.py)
+    ![python](src/Controller.py)
+    ![python](src/Enemy.py)
+    ![python](src/Highscore.py)
+    ![python](src/Launcher.py)
+    ![python](src/Screen.py)
+  
 * assets
-    * << all of your media, i.e. images, font files, etc, should go here) >>
+    ![image](assets/bearcat.png)
+    ![image](assets/class_diagram.png)
+    ![image](assets/enemy.png)
+    ![image](assets/launcher.png)
+    ![image](assets/level1.png)
+    ![image](assets/level2.png)
+    ![image](assets/level3.png)
+    ![image](assets/level4.png)
+    ![image](assets/levelCompleted.png)
+    ![image](assets/loseScreen.png)
+    ![image](assets/mainScreenBackground.png)
 * etc
-    * << This is a catch all folder for things that are not part of your project, but you want to keep with your project >>
+    ![image](etc/image.png)
+    ![image](etc/image_2.png)
+    ![image](etc/image_3.png)
+    ![image](etc/image_4.png)
+    ![image](etc/image_5.png)
+    ![image](etc/image_6.png)
+    ![image](etc/image_7.png)
+    ![image](etc/image_8.png)
+    ![image](etc/image_9.png)
+    ![image](etc/image_10.png)
+    ![image](etc/image_11.png)
+    ![image](etc/image_12.png)
+    ![image](etc/image_13.png)
 
 ***
 

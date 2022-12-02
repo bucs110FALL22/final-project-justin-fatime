@@ -14,8 +14,6 @@ class Launcher(pygame.sprite.Sprite):
     self.image.set_colorkey((255,255,255))
     self.rect.x = x + 20
     self.rect.y = y - 40
-    transColor = self.image.get_at((0,0))
-    self.image.set_colorkey(transColor)
     self.up_direction = True
     self.vel= 4
   #update sprite position
@@ -30,8 +28,9 @@ class Launcher(pygame.sprite.Sprite):
     if key_input[pygame.K_DOWN]:
       if self.rect.y < 410:
         self.rect.y += self.vel  
-  #returns the position for new character
   def draw_new_character(self):
+    #returns a Character using the position of the launcher
+    #only argument is itself
     return Character(self.rect.x + 50 , self.rect.y) 
 
 
